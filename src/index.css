@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 20 43% 98%;
+    --foreground: 350 24% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 350 24% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 350 24% 15%;
+
+    --primary: 352 49% 13%;
+    --primary-foreground: 20 43% 98%;
+
+    --secondary: 0 81% 26%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 8 28% 92%;
+    --muted-foreground: 355 15% 38%;
+
+    --accent: 8 28% 85%;
+    --accent-foreground: 352 49% 13%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 5 22% 80%;
+    --input: 5 22% 75%;
+    --ring: 0 81% 26%;
+
+    --radius: 0.25rem;
+
+    --gold: 0 81% 26%;
+    --gold-light: 355 62% 35%;
+    --gold-dark: 352 49% 13%;
+    --ivory: 20 43% 98%;
+    --charcoal: 352 49% 13%;
+    --warm-brown: 5 27% 47%;
+    --pearl: 8 28% 92%;
+    --silver: 5 22% 75%;
+    --hero-shade: 0 0% 5%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 352 33% 9%;
+    --foreground: 20 43% 96%;
+    --card: 352 29% 14%;
+    --card-foreground: 20 43% 96%;
+    --popover: 352 29% 14%;
+    --popover-foreground: 20 43% 96%;
+    --primary: 20 43% 96%;
+    --primary-foreground: 352 33% 9%;
+    --secondary: 2 65% 67%;
+    --secondary-foreground: 352 33% 9%;
+    --muted: 352 25% 20%;
+    --muted-foreground: 8 20% 76%;
+    --accent: 352 26% 30%;
+    --accent-foreground: 20 43% 96%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 352 22% 29%;
+    --input: 352 22% 29%;
+    --ring: 2 65% 67%;
+    --gold: 2 65% 67%;
+    --gold-light: 8 40% 77%;
+    --gold-dark: 352 26% 30%;
+    --ivory: 20 43% 96%;
+    --charcoal: 352 33% 9%;
+    --warm-brown: 8 20% 76%;
+    --pearl: 352 25% 20%;
+    --silver: 8 20% 76%;
+    --hero-shade: 0 0% 5%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    letter-spacing: 0;
+  }
+
+  img {
+    filter: grayscale(100%);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .hero-overlay {
+    background: linear-gradient(to bottom, hsl(var(--hero-shade) / 0.18), hsl(var(--hero-shade) / 0.23) 45%, hsl(var(--hero-shade) / 0.72));
+  }
+
+  .font-script {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 px-5 md:px-8;
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--gold)) 100%);
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 50%, hsl(var(--gold-dark)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-wedding {
+    @apply bg-card rounded-sm border border-border/50 shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1;
+  }
+
+  .btn-gold {
+    @apply px-6 py-2.5 rounded-sm font-body font-medium tracking-widest uppercase text-xs
+      transition-all duration-500 border border-secondary text-foreground
+      hover:bg-secondary hover:text-secondary-foreground;
+  }
+
+  .btn-gold-filled {
+    @apply px-8 py-3 rounded-sm font-body font-medium tracking-widest uppercase text-xs
+      gold-gradient text-primary-foreground
+      transition-all duration-500 hover:shadow-[0_12px_30px_hsl(var(--charcoal)/0.16)] hover:-translate-y-0.5;
+  }
+
+  /* A small editorial heart after section titles carries the motif without altering the layout. */
+  section h2:not(.no-heart)::after {
+    content: "♥";
+    display: block;
+    width: fit-content;
+    margin: 0.45rem auto 0;
+    color: hsl(var(--secondary));
+    font-family: Georgia, serif;
+    font-size: 0.55em;
+    font-style: normal;
+    line-height: 1;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  .animate-shimmer {
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+  }
+
+  @keyframes slideLoop {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-slide-loop {
+    animation: slideLoop 20s linear infinite;
+  }
+
+  @keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marqueeScroll 25s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+}
